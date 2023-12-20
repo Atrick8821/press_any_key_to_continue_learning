@@ -293,16 +293,11 @@ void update_state(game_state_t* state, int (*add_food)(game_state_t* state)) {
   {
     if (state->snakes[i].live)
     {
-      unsigned int head_row = state->snakes[i].head_row;
-      unsigned int head_col = state->snakes[i].head_col;
-      char head = get_board_at(state, head_row, head_col);
-      unsigned int next_head_row = get_next_row(head_row, head);
-      unsigned int next_head_col = get_next_col(head_col, head);
-      char next_pos = get_board_at(state, next_head_row, next_head_col);
+      char next_pos = next_square(state, i);
       if (is_snake(next_pos) || next_pos == '#') // 死亡
       {
         state->snakes[i].live = false;
-        set_board_at(state, head_row, head_col, 'x');
+        set_board_at(state, state->snakes[i].head_row, state->snakes[i].head_col, 'x');
         continue;
       }
       else if (next_pos == '*')
