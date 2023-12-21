@@ -6,7 +6,7 @@
 #include <string.h>
 
 #include "snake_utils.h"
-
+/*test vscode-git*/
 /* Helper function definitions */
 static void set_board_at(game_state_t* state, unsigned int row, unsigned int col, char ch);
 static bool is_tail(char c);
