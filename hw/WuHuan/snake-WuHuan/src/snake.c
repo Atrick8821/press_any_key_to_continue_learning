@@ -57,6 +57,7 @@ int main(int argc, char* argv[]) {
 			return -1;
 		}
 		state = initialize_snakes(state);
+    fclose(fp);
   } else if (io_stdin) {
     // TODO: Load the board from stdin
     // TODO: Then call initialize_snakes on the state you made
@@ -71,6 +72,7 @@ int main(int argc, char* argv[]) {
 		state = create_default_state();
   }
 
+
   // TODO: Update state. Use the deterministic_food function
   // (already implemented in snake_utils.h) to add food.
 		update_state(state, deterministic_food);		
@@ -84,6 +86,7 @@ int main(int argc, char* argv[]) {
 			return -1;
 		}
 		print_board(state, fout);
+    fclose(fout);
   } else {
     // TODO: Print the board to stdout
 		print_board(state, stdout);
