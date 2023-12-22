@@ -62,11 +62,11 @@ int main(int argc, char* argv[]) {
   // Write updated board to file or stdout
   if (out_filename != NULL) {
     FILE* out_file = fopen(out_filename, "w");
-    print_board(state, out_file);// TODO: Save the board to out_filename
+    print_board(state, out_file);
+    fclose(out_file);// TODO: Save the board to out_filename
   } else {
     print_board(state, stdout);// TODO: Print the board to stdout
   }
-
   free_state(state);// TODO: Free the state
 
   return 0;

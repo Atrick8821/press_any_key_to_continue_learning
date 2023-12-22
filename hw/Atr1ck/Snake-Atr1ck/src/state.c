@@ -319,6 +319,7 @@ game_state_t* load_board(FILE* fp) {
   state->snakes = NULL;
   state->num_snakes = 0;
   state->num_rows = 0;
+  state->board = NULL;
   char buff[120000];// 中途缓存
   while (fgets(buff, 120000, fp)) 
   {
