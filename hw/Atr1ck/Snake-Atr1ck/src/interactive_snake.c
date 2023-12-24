@@ -134,7 +134,13 @@ int main(int argc, char* argv[]) {
 
   // Read board from file, or create default board
   if (in_filename != NULL) {
-    state = load_board(in_filename);
+    FILE* fp = fopen(in_filename, "r");
+    if (fp == NULL)
+    {
+      return -1;
+    }
+    state = load_board(fp);
+    fclose(fp);
     state = initialize_snakes(state);
   } else {
     state = create_default_state();
