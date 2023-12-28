@@ -4,9 +4,9 @@
 // File name: projects/01/Mux8Way16.hdl
 /**
  * 8-way 16-bit multiplexor:
- * out = a if sel == 000
+ * out = a if sel == 000 
  *       b if sel == 001
- *       ...
+ *       ...         
  *       h if sel == 111
  */
 CHIP Mux8Way16 {
@@ -16,5 +16,12 @@ CHIP Mux8Way16 {
     OUT out[16];
 
     PARTS:
+    Mux16(a=a, b=b, sel=sel[0], out=ab);
+    Mux16(a=c, b=d, sel=sel[0], out=cd);
+    Mux16(a=e, b=f, sel=sel[0], out=ef);
+    Mux16(a=g, b=h, sel=sel[0], out=gh);
+    Mux16(a=ab, b=cd, sel=sel[1], out=abcd);
+    Mux16(a=ef, b=gh, sel=sel[1], out=efgh);
+    Mux16(a=abcd, b=efgh, sel=sel[2], out=out);
     //// Replace this comment with your code.
 }
