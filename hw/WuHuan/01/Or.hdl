@@ -12,4 +12,7 @@ CHIP Or {
 
     PARTS:
     //// Replace this comment with your code.
+    Not(in=a, out=Na);
+    Not(in=b, out=Nb);
+    Nand(a=Na, b=Nb, out=out);
 }
