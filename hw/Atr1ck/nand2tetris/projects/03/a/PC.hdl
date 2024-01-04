@@ -18,5 +18,10 @@ CHIP PC {
     OUT out[16];
     
     PARTS:
+    Inc16(in=feedback, out=incremented);
+    Mux16(a=in, b=incremented, sel=inc, out=dataincremented);
+	Mux16(a=dataincremented, b=in, sel=load, out=dataload);
+	Mux16(a=dataload, b=false, sel=reset, out=datareset);
+    Register(in=datareset, load=true, out=feedback, out=out);
     //// Replace this comment with your code.
 }
