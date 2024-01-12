@@ -12,3 +12,9 @@
 // the screen should remain fully clear as long as no key is pressed.
 
 //// Replace this comment with your code.
+// screenaddr = SCREEN
+// CHECK KBD
+// if KBD != 0 BLACK
+// else WHITE
+
+
