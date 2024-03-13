@@ -17,4 +17,64 @@
 // if KBD != 0 BLACK
 // else WHITE
 
+(LOOP)
+    @SCREEN
+    D=A
 
+    @screenaddr
+    M=D
+
+
+    @KBD
+    D=M
+
+    @WHITE
+    D;JEQ
+
+(BLACK)
+    @i
+    M=0
+(BLACKLOOP)
+    @KBD
+    D=A
+    
+    @screenaddr
+    D=D-M
+
+    @LOOP
+    D;JEQ
+
+    @screenaddr
+    A=M
+    M=-1
+
+    @screenaddr
+    M=M+1
+
+    @BLACKLOOP
+    0;JMP
+
+    
+(WHITE)
+    @i
+    M=0
+    (WHITELOOP)
+    @KBD
+    D=A
+
+    @screenaddr
+    D=D-M
+
+    @LOOP
+    D;JEQ
+
+    @screenaddr
+    A=M
+    M=0
+
+    @screenaddr
+    M=M+1
+
+    @WHITELOOP
+    0;JMP
+    
